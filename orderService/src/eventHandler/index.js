@@ -1,14 +1,14 @@
 const paymentCompleted = require('./paymentCompleted');
-const EventHandler= (message) => {
+module.exports = (message) => {
 
-    switch(message.type){
+    switch (message.type) {
         case 'ORDER_PAYMENT_COMPLETED':
             paymentCompleted(message);
             break;
-                 
+
         default:
-            break;    
+            break;
 
     }
-            
+
 }
