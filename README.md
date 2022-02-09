@@ -6,6 +6,7 @@
 
  - [Kafka](https://kafka.apache.org/downloads)
  - [Nodejs](https://nodejs.org/en/download/)
+ - [mongoDB](https://www.mongodb.com/try/download/community)
 
 
 ## Setup
