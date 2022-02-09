@@ -5,6 +5,9 @@ module.exports = (message) => {
         case 'ORDER_PAYMENT_COMPLETED':
             paymentCompleted(message);
             break;
+        case 'ORDER_DELIVERY_COMPLETED':
+            deliveryCompleted(message);
+            break;
 
         default:
             break;
