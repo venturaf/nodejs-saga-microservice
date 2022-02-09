@@ -25,7 +25,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/orderdb", { useNewUrlParser: true, u
         consumer.addTopics(["ORDER_SERVICE", "SERVICE_REPLY"]).then(() => {
             consumer.consume(message => {
                 console.log("consumed message", message);
-                eventHandler(JSON.parse(message));
+                eventHandler(JSON.parse(message.value));
             })
         })
 

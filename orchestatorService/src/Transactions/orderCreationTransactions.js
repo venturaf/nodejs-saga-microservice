@@ -10,8 +10,10 @@ module.exports = (message) => {
             })
             break;
         case 'PAYMENT_COMPLETED_STATE':
+            console.log(message);
             Producer({
-                topic: '',
+                topic: 'ORDER_PAYMENT_COMPLETED',
+                type: 'ORDER_PAYMENT_COMPLETED',
                 payload: {
                     data: message.payload.data
                 }
