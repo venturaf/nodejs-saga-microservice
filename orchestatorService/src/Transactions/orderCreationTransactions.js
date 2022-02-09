@@ -28,7 +28,6 @@ module.exports = (message) => {
             })
             break;
         case 'UPDATED_STOCK':
-            console.log(message);
             Producer({
                 topic: 'ORDER_DELIVERY_COMPLETED',
                 type: 'ORDER_DELIVERY_COMPLETED',

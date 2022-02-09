@@ -2,8 +2,8 @@ const orderModel = require('../Model/orderModel')
 const Producer = require('../../../kafkaBroker/kafkaHandler/routes');
 module.exports = async(message) => {
     try {
-        const transactionId = message.payload.data;
-        const order = await orderModel.findOneAndUpdate({ transactionId: transactionId }, {
+        const data = message.payload.data;
+        const order = await orderModel.findOneAndUpdate({ transactionId: data.transactionId }, {
             status: 'PAYMENT_COMPLETED'
         });
 
@@ -16,6 +16,7 @@ module.exports = async(message) => {
                     name: order.name,
                     itemCount: order.itemCount,
                     transactionId: order.transactionId,
+                    amount: order.amount,
                 }
             }
         })

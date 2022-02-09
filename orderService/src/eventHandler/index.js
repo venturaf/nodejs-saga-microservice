@@ -1,4 +1,5 @@
 const paymentCompleted = require('./paymentCompleted');
+const stockUpdated = require('./stockUpdated');
 module.exports = (message) => {
 
     switch (message.type) {
@@ -6,7 +7,7 @@ module.exports = (message) => {
             paymentCompleted(message);
             break;
         case 'ORDER_DELIVERY_COMPLETED':
-            deliveryCompleted(message);
+            stockUpdated(message);
             break;
 
         default:

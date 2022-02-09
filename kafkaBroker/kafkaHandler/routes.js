@@ -17,7 +17,7 @@ const messageTypeToTopicMessaging = {
 }
 
 module.exports = (payload) => {
-    console.log("producer", payload);
+    console.log("producer message", payload);
     messageTypeToTopicMessaging[payload.topic].forEach(topic => {
         producer.produce(topic, JSON.stringify(payload));
     })

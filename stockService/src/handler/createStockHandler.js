@@ -16,13 +16,16 @@ module.exports = async(message) => {
         await stock.save();
 
         Producer({
-            topic: 'ORDER_PREPARED',
+            topic: 'ORDER_CREATION_TRANSACTIONS',
             type: 'UPDATED_STOCK',
             payload: {
                 data: {
                     id: stock._id,
+                    order_id: data.id,
+                    name: data.name,
+                    itemCount: data.itemCount,
                     transactionId: stock.transactionId,
-                    amount: amount
+                    amount: data.amount
                 }
             }
         })
