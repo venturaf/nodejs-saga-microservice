@@ -1,15 +1,16 @@
 {
-  "name": "kafkaBroker",
-  "version": "1.0.0",
-  "description": "",
-  "main": "kafkaBootstrap.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "kafka-node": "^5.0.0"
-  }
+    "name": "kafkaBroker",
+    "version": "1.0.0",
+    "description": "",
+    "main": "kafkaBootstrap.js",
+    "scripts": {
+        "dev": "nodemon kafkaBootstrap.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "kafka-node": "^5.0.0"
+    }
 }
