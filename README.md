@@ -1,6 +1,6 @@
 # Implementación del patrón Saga con Nodejs Microservices
 
-![diagrama](./patron-saga-nodejs.png)
+![diagrama](https://user-images.githubusercontent.com/20560926/153483237-6771742b-9a01-4a66-9a8c-2c4c056c54d6.png)
 
 ## Requisitos
 
