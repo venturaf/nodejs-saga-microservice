@@ -1,19 +1,25 @@
-const Consumer = require('../../kafkaBroker/kafkaHandler/Consumer');
-const eventHandler = require('./eventHandler');
+const express = require('express');
+const bodyParser = require('body-parser');
+
+const InitialPayment = require('./controller/initialPayment');
+
+const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
 try {
 
-    const consumer = new Consumer();
-    
-    consumer.addTopics(["PAYMENT_SERVICE"]).then(() => {
-        consumer.consume(message => {
-            console.log("consumed message",message);
-            eventHandler(JSON.parse(message.value));
-        })
+    app.get('/initialPayment', InitialPayment);
+
+    const PORT = 3001;
+
+    app.listen(PORT, () => {
+        console.log('server is running on port ', PORT);
     })
-    
+
     console.log("Payment service Started Successfully");
-    
-    }
-    catch(e){
-        console.log(`Orchestrator Error ${e}`);
-    }
+
+} catch (e) {
+    console.log(`Orchestrator Error ${e}`);
+}
