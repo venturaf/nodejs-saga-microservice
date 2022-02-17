@@ -1,7 +1,5 @@
 const uuidv1 = require('uuid/v1');
-
 const OrderModel = require('../Model/orderModel');
-const Producer = require('../../../kafkaBroker/kafkaHandler/routes');
 const CreateOrder = async(req, res) => {
 
     try {
@@ -14,7 +12,7 @@ const CreateOrder = async(req, res) => {
             name: name,
             itemCount: itemCount,
             transactionId: uuidv1(),
-            status: 'PENDING',
+            status: 'ORDER_CREATED',
             amount: amount
         });
 
@@ -26,19 +24,6 @@ const CreateOrder = async(req, res) => {
         await order.save();
 
         res.send(order);
-
-        Producer({
-            topic: 'ORDER_CREATION_TRANSACTIONS',
-            type: 'ORDER_CREATED',
-            payload: {
-                data: {
-                    id: order._id,
-                    transactionId: order.transactionId,
-                    amount: amount
-                }
-            }
-        })
-
 
     } catch (e) {
         console.log(e);

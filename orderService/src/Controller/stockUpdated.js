@@ -6,7 +6,6 @@ module.exports = async(message) => {
         const order = await orderModel.findOneAndUpdate({ transactionId: data.transactionId }, {
             status: 'PREPARE_ORDER'
         });
-
     } catch (e) {
         console.log(e);
     }
